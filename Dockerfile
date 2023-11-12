@@ -1,2 +1,2 @@
 FROM tiangolo/uwsgi-nginx-flask:latest 
-COPY . /app
+COPY ./app /app
