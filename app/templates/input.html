@@ -1,21 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
 <body>
-    <h1> HTML input & output practice</h1>
+    <h1>Team09:Techforce</h1>
     <form action="/result" method="POST">
         <p><b>* Name</b> <input type='text' id='name' name='name' /></p>
         <p><b>* Student Number</b> <input type='text' id='StudentNumber' name='StudentNumber' /></p>
+        <p><b>* University </b> <input type='text' id='university' name='university' /></p>
         <p><b>* Gender</b></p>
         <p>Male<input type='radio' id ='male' name="gender" value="male">
         Female<input type='radio' id ='gender' name="gender" value="female"></p>
-
-        <p><b>* Major</b> <input type='text' id='major' name='major' /></p>
         
+        <p><b>* Major</b> <input type='text' id='major' name='major' /></p>
+        <p><b>* Email
+            <input type='text' id='email' name='email'>@
+            <select id="email-ad" name="email-ad">
+            <option disabled selected>선택</option>
+            <option value="@naver.com" name="email">naver.com</option>
+            <option value="@google.com" name="email">google.com</option>
+            <option value="@hanmail.com" name="email">hanmail.com</option>
+            <option value="@nate.com" name="email">nate.com</option>
+            <option value="@kakao.com" name="email">kakao.com</option>
+            </select>
+            </b></p>
+
         <p><b>* Programming Languages</b></p>
-        <p>Python<input type='checkbox' id='Python' name='option' value='Python'>
+        <p></p>Python<input type='checkbox' id='Python' name='option' value='Python'>
         Java<input type='checkbox' id='Java' name='option' value='Java'>
         HTML<input type='checkbox' id='HTML' name='option' value='HTML'>
         C++<input type='checkbox' id='C++' name='option' value='C++'></p>
+
         <button type='submit' name='submit' value='submit'>submit</button>
     </form>
 </body>
