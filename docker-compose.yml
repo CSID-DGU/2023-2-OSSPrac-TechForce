@@ -1,8 +1,9 @@
 version: '3'
-
 services:
   app:
     build: .
     image: suyoen623/techforce-dockercompose
     ports:
       - "8080:80"
+    volumes:
+      - ./app:/app

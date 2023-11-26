@@ -1,0 +1,39 @@
+pipeline {
+    agent any
+	triggers {
+			pollSCM('*/3 * * * *')
+	}
+    environment {
+        DOCKER = credentials('docker-hub')
+    }
+    stages {
+        stage('Prepare') {
+            agent any
+            steps {
+                checkout([$class: 'GitSCM', branches: [[name: '*/main']], userRemoteConfigs: [[url: 'https://github.com/yonjinoh/hw6']]])
+            }
+        }
+        stage('Build') {
+            steps {
+                dir('/var/jenkins_home/workspace/hw6_c'){
+                    sh 'docker compose build app'
+                }
+           }
+        }
+        stage('Tag') {
+            steps {
+                script {
+                    sh "docker tag suyoen623/techforce-dockercompose:latest ${DOCKER_USR}/hw6_c-app:${BUILD_NUMBER}"
+                }
+            }
+        }
+        stage('Push') {
+            steps {
+                script {
+                    sh "docker login -u $DOCKER_USR -p $DOCKER_PSW"
+                    sh "docker push ${DOCKER_USR}/hw6_c-app:${BUILD_NUMBER}"
+                }
+            }
+        }
+    }
+}
